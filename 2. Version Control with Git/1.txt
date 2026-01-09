@@ -1,0 +1,92 @@
+### Introduction to Version Control (Practical & Short)
+
+**Version Control** is a system that helps you **track changes in code**, **collaborate with others**, and **recover previous versions** when something breaks.
+
+Think of it like **save + history + teamwork** for code.
+
+---
+
+### Why Version Control is needed (Real-life example)
+
+Without version control:
+
+* You edit code → it breaks → no way to go back
+* Multiple devs → overwrite each other’s work
+* Final_final_v3_last.zip chaos 😅
+
+With version control:
+
+* Every change is recorded
+* You can **rollback**, **compare**, and **collaborate safely**
+
+---
+
+### Common Version Control System
+
+* **Git** → most popular, works locally
+* **GitHub / GitLab / Bitbucket** → remote repositories (cloud)
+
+---
+
+### Basic Git Workflow (Practical)
+
+1. **Initialize repo**
+
+```bash
+git init
+```
+
+👉 Starts version tracking in a project
+
+2. **Check file status**
+
+```bash
+git status
+```
+
+👉 Shows new / modified / staged files
+
+3. **Add changes**
+
+```bash
+git add .
+```
+
+👉 Tells Git: “Track these changes”
+
+4. **Commit changes**
+
+```bash
+git commit -m "Initial project setup"
+```
+
+👉 Saves a snapshot of code with a message
+
+5. **Connect to remote repo**
+
+```bash
+git remote add origin https://github.com/user/repo.git
+```
+
+6. **Push code**
+
+```bash
+git push -u origin main
+```
+
+👉 Uploads local code to GitHub
+
+---
+
+### Key Benefits (DevOps mindset)
+
+* **Traceability** → know who changed what & when
+* **Collaboration** → multiple developers work safely
+* **Rollback** → fix production issues fast
+* **CI/CD integration** → pipelines trigger on commits
+
+---
+
+### Simple One-line Summary (for notes)
+
+> Version Control is a system that tracks code changes, enables collaboration, and allows rollback using tools like Git and GitHub.

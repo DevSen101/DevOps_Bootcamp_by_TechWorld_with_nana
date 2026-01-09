@@ -1,0 +1,138 @@
+### Undoing & Changing Commits (reset, revert, amend)
+
+These commands are used to **fix mistakes safely** depending on whether commits are **local or already pushed**.
+
+---
+
+## 1. `git reset` (Move HEAD backward)
+
+**Use when:** Commit is **local** and NOT pushed.
+
+### Soft reset (keep changes staged)
+
+```bash
+git reset --soft HEAD~1
+```
+
+👉 Removes last commit, keeps changes ready to recommit.
+
+### Mixed reset (default – keep changes unstaged)
+
+```bash
+git reset HEAD~1
+```
+
+👉 Removes commit, keeps code but unstaged.
+
+### Hard reset (danger ⚠️)
+
+```bash
+git reset --hard HEAD~1
+```
+
+👉 Deletes commit **and code changes** permanently.
+
+**One-liner:** Reset rewrites history (local only).
+
+---
+
+## 2. `git commit --amend` (Edit Last Commit)
+
+**Use when:** Fix message or add missed files to **latest commit**.
+
+Add forgotten file:
+
+```bash
+git add file.js
+git commit --amend
+```
+
+Change commit message only:
+
+```bash
+git commit --amend -m "Fix login validation bug"
+```
+
+👉 Replaces last commit with a new one.
+
+**Rule:**
+❌ Don’t amend commits already pushed (unless force push).
+
+---
+
+## 3. `git revert` (Safe Undo)
+
+**Use when:** Commit is **already pushed**.
+
+```bash
+git revert <commit-id>
+```
+
+👉 Creates a **new commit** that reverses changes.
+
+**Why safe?**
+
+* History is preserved
+* Team-friendly
+
+**One-liner:** Revert undoes changes without rewriting history.
+
+---
+
+### Reset vs Revert (Interview Gold)
+
+| Command | Changes History | Safe for Remote |
+| ------- | --------------- | --------------- |
+| reset   | Yes             | ❌ No            |
+| revert  | No              | ✅ Yes           |
+
+---
+
+## Merging Branches (Bugfix → main/master)
+
+**Purpose:** Combine completed work into main codebase.
+
+### Step-by-Step Merge
+
+```bash
+git checkout main
+git pull origin main
+```
+
+Merge bugfix branch:
+
+```bash
+git merge bugfix-auth
+```
+
+👉 Creates a merge commit (if needed).
+
+### Push Merged Code
+
+```bash
+git push origin main
+```
+
+---
+
+### After Merge (Cleanup)
+
+```bash
+git branch -d bugfix-auth
+git push origin --delete bugfix-auth
+```
+
+---
+
+### One-Line Summaries (Notes)
+
+* **reset** → undo local commits by moving HEAD
+* **amend** → modify last commit
+* **revert** → safely undo pushed commits
+* **merge** → combine branch changes into main
+
+---
+
+### Interview Tip (1 Line)
+
+> Use reset/amend for local fixes, revert for shared history, and merge to integrate feature or bugfix branches.

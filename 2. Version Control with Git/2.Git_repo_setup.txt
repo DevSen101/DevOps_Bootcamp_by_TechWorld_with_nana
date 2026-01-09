@@ -1,0 +1,109 @@
+### Setup Git Repository (Short, Practical Summary)
+
+This setup is done **once** to start working with Git and a remote platform like **GitHub / GitLab**.
+
+---
+
+### 1. Create GitHub / GitLab Account
+
+You need an account to **store code remotely** and collaborate.
+
+👉 Example: GitHub is commonly used in DevOps pipelines.
+
+---
+
+### 2. Create a New Repository (Remote)
+
+A repository is a **central place** to store your project.
+
+* Repo Name: `devops-learning`
+* Visibility: Public / Private
+
+👉 This repo will be cloned to your local machine.
+
+---
+
+### 3. Install Git Client
+
+Git lets you interact with repositories.
+
+Check installation:
+
+```bash
+git --version
+```
+
+👉 Confirms Git is installed correctly.
+
+---
+
+### 4. Create SSH Key Pair (Secure Authentication)
+
+SSH avoids typing username/password every time.
+
+Generate key:
+
+```bash
+ssh-keygen -t ed25519 -C "youremail@example.com"
+```
+
+👉 Creates **private key (local)** and **public key (to upload)**
+
+Show public key:
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+---
+
+### 5. Add SSH Public Key to GitHub / GitLab
+
+* Go to **Settings → SSH Keys**
+* Paste the public key
+
+👉 Enables secure connection between local machine and remote repo.
+
+Test connection:
+
+```bash
+ssh -T git@github.com
+```
+
+---
+
+### 6. Configure Git Username & Email
+
+This identifies **who made the commit**.
+
+```bash
+git config --global user.name "Dev Kumar Sen"
+git config --global user.email "dev@email.com"
+```
+
+Verify:
+
+```bash
+git config --list
+```
+
+---
+
+### 7. Clone Remote Repository
+
+Copy the remote repo to your local system.
+
+```bash
+git clone git@github.com:username/devops-learning.git
+```
+
+👉 Creates a local project folder linked to remote.
+
+---
+
+### 8. End Result (What you achieved)
+
+✔ Git installed
+✔ Secure SSH authentication
+✔ Git identity configured
+✔ Remote repo connected to local machine

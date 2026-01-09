@@ -1,0 +1,92 @@
+### Merge Requests (Short, Practical Explanation)
+
+A **Merge Request (MR)** (called **Pull Request** in GitHub) is a request to **merge one branch into another**, usually into `main`.
+
+It is used for:
+
+* **Code review**
+* **Quality checks**
+* **Safe merging**
+
+---
+
+### Why Merge Requests are Important (Real DevOps Use)
+
+* Prevents broken code from reaching production
+* Enables **peer review**
+* Triggers **CI/CD pipelines**
+* Keeps `main` branch stable
+
+---
+
+### Practical Flow of a Merge Request
+
+#### 1. Work on a Feature Branch
+
+```bash
+git checkout -b feature-login
+```
+
+Make changes, then:
+
+```bash
+git add .
+git commit -m "Add login feature"
+git push -u origin feature-login
+```
+
+---
+
+#### 2. Create Merge Request (GitHub / GitLab UI)
+
+* **Source branch:** `feature-login`
+* **Target branch:** `main`
+* Add title & description
+* Assign reviewer (optional)
+* Click **Create Merge Request**
+
+👉 This tells the team: *“Please review and merge my code.”*
+
+---
+
+#### 3. Review & Merge
+
+Options:
+
+* **Approve** → code looks good
+* **Request changes** → fix issues
+* **Merge** → code becomes part of `main`
+
+---
+
+### Merge Strategies (Simple)
+
+* **Merge commit** → keeps full history
+* **Squash merge** → combines commits into one
+* **Rebase & merge** → clean linear history
+
+---
+
+### After Merge (Cleanup)
+
+Delete feature branch:
+
+```bash
+git branch -d feature-login
+git push origin --delete feature-login
+```
+
+👉 Keeps repo clean.
+
+---
+
+### One-Line Summary (For Notes)
+
+> A Merge Request is a formal process to review, test, and merge code from one branch into another safely.
+
+---
+
+### Interview 1-Liner
+
+> Merge Requests ensure code quality by enabling review, testing, and controlled integration into the main branch.
+

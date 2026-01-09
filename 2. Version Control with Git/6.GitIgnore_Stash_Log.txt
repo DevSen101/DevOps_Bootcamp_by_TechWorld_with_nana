@@ -1,0 +1,144 @@
+### Don’t Track Certain Files / Folders (`.gitignore`)
+
+**Purpose:** Prevent committing files that are **local, sensitive, or auto-generated** (editor configs, logs, build files).
+
+#### Create `.gitignore`
+
+```bash
+touch .gitignore
+```
+
+#### Common Editor / Dev Files to Ignore
+
+```gitignore
+# Node / JS
+node_modules/
+.env
+dist/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor specific
+.vscode/
+.idea/
+```
+
+👉 Place `.gitignore` in **project root**.
+
+**Important:**
+Files already tracked won’t be ignored. Remove them first:
+
+```bash
+git rm -r --cached node_modules
+git commit -m "Remove tracked files and apply gitignore"
+```
+
+**One-liner:** `.gitignore` tells Git what **not to track**.
+
+---
+
+## Save Work-in-Progress Changes (Stash)
+
+**Problem:** You need to switch branches but have unfinished work.
+**Solution:** **Stash** temporarily saves changes.
+
+#### Stash Changes
+
+```bash
+git stash
+```
+
+👉 Saves changes and cleans working directory.
+
+With message:
+
+```bash
+git stash push -m "WIP: login UI"
+```
+
+#### View Stashes
+
+```bash
+git stash list
+```
+
+#### Restore Changes
+
+```bash
+git stash pop
+```
+
+👉 Applies and removes stash.
+
+Apply without removing:
+
+```bash
+git stash apply
+```
+
+**One-liner:** Stash shelves unfinished work temporarily.
+
+---
+
+## Going Back in History (`git log`, `git checkout`)
+
+**Purpose:** Inspect previous commits or return to old code.
+
+#### View Commit History
+
+```bash
+git log --oneline
+```
+
+👉 Shows short commit IDs.
+
+#### Checkout Old Commit (Read-Only)
+
+```bash
+git checkout <commit-id>
+```
+
+👉 Detached HEAD state (for inspection/debugging).
+
+Go back to latest branch:
+
+```bash
+git checkout main
+```
+
+#### Checkout a File from History
+
+```bash
+git checkout <commit-id> -- filename
+```
+
+👉 Restores file from old commit.
+
+**Note:**
+For newer Git:
+
+```bash
+git switch main
+```
+
+**One-liner:** Git history lets you inspect and restore past states safely.
+
+---
+
+### Quick Notes (For GitHub / Exam)
+
+* **`.gitignore`** → excludes unnecessary files from tracking
+* **`git stash`** → temporarily saves unfinished changes
+* **`git log`** → views commit history
+* **`git checkout`** → moves between commits or branches
+
+---
+
+### Interview Tip
+
+> `.gitignore` prevents noise, stash saves WIP safely, and Git history helps debug and recover code.

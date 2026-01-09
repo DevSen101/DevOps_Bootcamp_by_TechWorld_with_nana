@@ -1,0 +1,102 @@
+### Concept of Branches (Short, Practical Explanation)
+
+A **branch** in Git is an **independent line of development**.
+It lets you work on new features or fixes **without affecting the main code**.
+
+Think of it like:
+
+> Copy of `main` → work safely → merge when ready
+
+---
+
+### Why Branches are Used (Real Example)
+
+* `main` → production-ready code
+* `feature/login` → login feature in progress
+* `bugfix/auth-error` → fixing an issue
+
+👉 Multiple developers can work **in parallel** without conflicts.
+
+---
+
+### Create a Branch Locally (Demo)
+
+Check current branch:
+
+```bash
+git branch
+```
+
+Create a new branch:
+
+```bash
+git branch feature-login
+```
+
+Switch to the branch:
+
+```bash
+git checkout feature-login
+```
+
+OR (modern way):
+
+```bash
+git switch feature-login
+```
+
+👉 Now all changes are isolated in this branch.
+
+---
+
+### Create & Switch in One Command
+
+```bash
+git checkout -b feature-login
+```
+
+👉 Creates + switches to branch at once.
+
+---
+
+### Push Branch to Remote (Create Remote Branch)
+
+```bash
+git push -u origin feature-login
+```
+
+👉 This creates the **same branch on GitHub/GitLab** and links it.
+
+---
+
+### Verify Remote Branch
+
+```bash
+git branch -a
+```
+
+👉 Shows local + remote branches.
+
+---
+
+### Typical Branch Workflow (DevOps Style)
+
+1. Create branch
+2. Write code
+3. Commit changes
+4. Push branch
+5. Create Pull Request / Merge Request
+6. Merge into `main`
+
+---
+
+### One-Line Summary (For Notes)
+
+> A Git branch is an isolated workspace used to develop features or fixes safely, which can later be merged into the main branch.
+
+---
+
+### Interview Tip (1-liner)
+
+> Branching enables parallel development and protects the stability of production code.
+

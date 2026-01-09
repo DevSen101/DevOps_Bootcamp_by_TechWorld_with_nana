@@ -1,0 +1,126 @@
+### Deleting Branches (Local & Remote)
+
+**Purpose:** Clean up branches after work is merged.
+
+#### Delete Local Branch
+
+```bash
+git branch -d feature-login
+```
+
+👉 Deletes branch **only if merged**.
+
+Force delete (not merged):
+
+```bash
+git branch -D feature-login
+```
+
+#### Delete Remote Branch
+
+```bash
+git push origin --delete feature-login
+```
+
+👉 Removes branch from GitHub/GitLab.
+
+**Verify**
+
+```bash
+git branch -a
+```
+
+**Best Practice:** Delete feature branches after merge to keep repo clean.
+
+---
+
+## Avoiding Merge Commits (Rebase)
+
+**Problem:** Merge creates extra “merge commits” → messy history.
+**Solution:** **Rebase** replays your commits on top of latest `main` → clean, linear history.
+
+#### Rebase Feature Branch on `main`
+
+```bash
+git checkout feature-login
+git fetch origin
+git rebase origin/main
+```
+
+👉 Your commits are moved on top of latest `main`.
+
+#### Push After Rebase
+
+```bash
+git push --force-with-lease
+```
+
+👉 Required because commit history changed (safe force).
+
+**Rule:**
+✔ Rebase **your own feature branches**
+❌ Never rebase shared `main` / `develop`
+
+**One-liner:** Rebase avoids merge commits by keeping history linear.
+
+---
+
+## Resolving Merge Conflicts
+
+**When it happens:** Same lines edited in different branches.
+
+#### Conflict Example
+
+```txt
+<<<<<<< HEAD
+console.log("Main branch code");
+=======
+console.log("Feature branch code");
+>>>>>>> feature-login
+```
+
+#### Steps to Resolve
+
+1. Open the conflicted file
+2. Choose correct code (or combine)
+3. Remove conflict markers
+4. Mark resolved:
+
+```bash
+git add filename
+```
+
+#### Continue Rebase / Merge
+
+* During rebase:
+
+```bash
+git rebase --continue
+```
+
+* During merge:
+
+```bash
+git commit
+```
+
+**Abort if needed**
+
+```bash
+git rebase --abort
+git merge --abort
+```
+
+---
+
+### One-Line Summaries (Notes)
+
+* **Deleting branches:** Removes unused branches locally and remotely after merge.
+* **Rebase:** Rewrites commit history to avoid merge commits and keep it clean.
+* **Merge conflict:** Happens when Git can’t auto-merge; resolve manually and continue.
+
+---
+
+### Interview Tip (Quick)
+
+> Rebase keeps history clean, merge preserves history; conflicts are resolved by manually choosing correct changes.
