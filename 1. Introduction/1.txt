@@ -1,0 +1,131 @@
+### **DevOps – Concise Notes**
+
+#### **What is DevOps**
+
+* DevOps = **Development + Operations**
+* A culture and practice to **build, test, release, and deploy software faster and reliably**
+* Focuses on **automation, collaboration, and continuous delivery**
+
+**Goal**
+
+* Faster releases
+* Fewer failures
+* Quick recovery
+
+---
+
+### **Dev (Development)**
+
+* Writes code
+* Builds features
+* Fixes bugs
+* Uses tools like Git, IDEs, frameworks
+
+---
+
+### **Ops (Operations)**
+
+* Manages servers & infrastructure
+* Deploys applications
+* Monitoring & security
+* Uses tools like Linux, Docker, Kubernetes, AWS
+
+---
+
+### **Why DevOps Came**
+
+* Dev and Ops worked separately
+* Dev wanted speed
+* Ops wanted stability
+* DevOps **removes silos** and shares responsibility
+
+---
+
+### **DevOps Lifecycle**
+
+* Plan → Code → Build → Test → Release → Deploy → Monitor → Improve
+
+---
+
+### **CI/CD**
+
+* **CI (Continuous Integration)**
+  Code is tested automatically after every change
+* **CD (Continuous Delivery/Deployment)**
+  Code is deployed automatically
+
+---
+
+## **Software Development Models**
+
+### **Waterfall Model**
+
+* Linear and sequential
+* One phase must finish before the next starts
+
+**Flow**
+
+* Requirement → Design → Development → Testing → Deployment
+
+**Pros**
+
+* Simple
+* Good for fixed requirements
+
+**Cons**
+
+* No flexibility
+* Late feedback
+* Not suitable for fast changes
+
+---
+
+### **Agile Model**
+
+* Iterative and incremental
+* Work done in small cycles (**sprints**)
+
+**Key Ideas**
+
+* Customer collaboration
+* Fast feedback
+* Continuous improvement
+
+**Pros**
+
+* Flexible
+* Early delivery
+* Better quality
+
+**Cons**
+
+* Needs strong communication
+* Less documentation
+
+---
+
+### **Agile + DevOps**
+
+* Agile = **how software is built**
+* DevOps = **how software is delivered & operated**
+* Together they enable **fast + reliable software**
+
+---
+
+### **Agile vs Waterfall (Quick Compare)**
+
+| Feature         | Agile              | Waterfall |
+| --------------- | ------------------ | --------- |
+| Flexibility     | High               | Low       |
+| Delivery        | Frequent           | One-time  |
+| Feedback        | Early & continuous | Late      |
+| DevOps Friendly | Yes                | No        |
+
+---
+
+### **One-Line Interview Answers**
+
+* **DevOps**: Culture to automate and integrate development and operations
+* **Agile**: Iterative development with fast feedback
+* **Waterfall**: Sequential development model
+* **CI/CD**: Automates testing and deployment
