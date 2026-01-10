@@ -1,0 +1,307 @@
+# Databases in the Development Process
+
+## 1. What is a Database?
+
+A **database** is a structured place to store, manage, and retrieve data efficiently.
+
+Examples:
+
+* User details
+* Orders, payments
+* Logs, analytics
+* Application state
+
+---
+
+## 2. Role of Databases in Software Development
+
+### a) During Application Development
+
+Databases are used to:
+
+* Store application data
+* Maintain relationships between entities
+* Ensure data consistency and integrity
+
+**Example:**
+
+* E-commerce app
+
+  * Users table
+  * Products table
+  * Orders table
+
+---
+
+### b) Database Design Phase
+
+Key tasks:
+
+* Identify entities (User, Product, Order)
+* Define relationships (one-to-many, many-to-many)
+* Normalize data (avoid redundancy)
+* Choose primary & foreign keys
+
+---
+
+### c) Development Environments
+
+Different databases for different stages:
+
+| Environment | Purpose                |
+| ----------- | ---------------------- |
+| Local       | Developer testing      |
+| Development | Feature building       |
+| Staging     | Pre-production testing |
+| Production  | Live users             |
+
+---
+
+## 3. Types of Databases Used in Development
+
+### a) Relational Databases (SQL)
+
+* Structured schema
+* Tables, rows, columns
+* ACID properties
+
+Examples:
+
+* MySQL
+* PostgreSQL
+* Oracle
+* SQL Server
+
+Used when:
+
+* Strong consistency needed
+* Financial systems
+* ERP, banking apps
+
+---
+
+### b) NoSQL Databases
+
+* Flexible schema
+* High scalability
+
+Types:
+
+* Document: MongoDB
+* Key-Value: Redis
+* Column: Cassandra
+* Graph: Neo4j
+
+Used when:
+
+* High traffic
+* Dynamic schema
+* Real-time apps
+
+---
+
+## 4. Database Operations in Development
+
+Common operations (CRUD):
+
+* Create
+* Read
+* Update
+* Delete
+
+Developers work with:
+
+* ORM (Mongoose, Sequelize, Hibernate)
+* Raw SQL queries
+* Migrations (schema changes)
+
+---
+
+## 5. Database Security in Development
+
+* Input validation
+* SQL Injection prevention
+* Authentication & authorization
+* Encrypted passwords
+* Role-based access control
+
+---
+
+# Databases in DevOps Workflow
+
+## 1. Role of Databases in DevOps
+
+In DevOps, databases must be:
+
+* Automated
+* Version controlled
+* Secure
+* Highly available
+
+DevOps focuses on:
+
+* Stability
+* Performance
+* Zero downtime
+
+---
+
+## 2. Database Provisioning
+
+DevOps automates database creation using:
+
+* Terraform
+* CloudFormation
+* ARM templates
+
+Provisioning includes:
+
+* DB instance
+* Storage
+* Network
+* Security rules
+
+---
+
+## 3. Database CI/CD
+
+### a) Schema Versioning
+
+* Database changes tracked like code
+* Migration scripts stored in Git
+
+Tools:
+
+* Flyway
+* Liquibase
+* Prisma Migrate
+
+---
+
+### b) Automated Migrations
+
+* Applied during deployment
+* No manual DB changes
+* Rollback support
+
+---
+
+## 4. Databases in Containers (Docker)
+
+Challenges:
+
+* Data persistence
+* Volume management
+
+Solutions:
+
+* Docker volumes
+* External managed databases
+
+Example:
+
+* App in Docker
+* Database on RDS / Cloud SQL
+
+---
+
+## 5. Databases in Kubernetes
+
+Key concepts:
+
+* StatefulSets
+* Persistent Volumes (PV)
+* Persistent Volume Claims (PVC)
+
+Common practice:
+
+* Stateful apps managed carefully
+* Production DBs usually **managed services**
+
+---
+
+## 6. Backup and Recovery
+
+DevOps ensures:
+
+* Automated backups
+* Point-in-time recovery
+* Disaster recovery plans
+
+Backup types:
+
+* Full backup
+* Incremental backup
+* Snapshot backups
+
+---
+
+## 7. Monitoring and Performance
+
+Monitored metrics:
+
+* CPU usage
+* Memory
+* Disk I/O
+* Query latency
+* Connection count
+
+Tools:
+
+* Prometheus
+* Grafana
+* CloudWatch
+* Datadog
+
+---
+
+## 8. Database Security in DevOps
+
+Key practices:
+
+* Secrets management (Vault, AWS Secrets Manager)
+* Encrypted storage
+* Encrypted connections (TLS)
+* Network isolation
+* Least privilege access
+
+---
+
+## 9. High Availability & Scaling
+
+### a) Replication
+
+* Master-Slave
+* Primary-Replica
+
+### b) Scaling
+
+* Vertical scaling (increase resources)
+* Horizontal scaling (read replicas)
+
+---
+
+## 10. Managed Databases in DevOps
+
+Why DevOps prefers managed DBs:
+
+* Automatic patching
+* Built-in backups
+* High availability
+
+Examples:
+
+* AWS RDS
+* AWS DynamoDB
+* Google Cloud SQL
+* Azure SQL Database
+
+---
+
+# Summary
+
+* **Development** focuses on data modeling, CRUD, and application logic.
+* **DevOps** focuses on automation, reliability, security, and scalability.
+* Databases are treated as **critical infrastructure**, not just storage.
+
+---
