@@ -1,0 +1,11 @@
+build tools for other pl
+these concept are similar to other pls
+like pip package manager for python
+
+pattern in all tools
+they have dep file(json, gradle, xml)
+they have repo for dep
+they have cmd line tool (test, start, build)
+they package managers(gradle , maven for java, npm and yarn for js pip for py)
+
+also there are tools to like mavel gradle for java and webpack et

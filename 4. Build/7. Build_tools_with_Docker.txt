@@ -1,0 +1,14 @@
+build tools in docker
+no need to build and move diff artifact(jar, war)
+just one artifact type docker image
+we build those docker image from the application
+no need for a repo for each type
+just one for docker img
+no need to iunstall dep on the server
+execute install cmd in docker img
+docker make it easier to cosolidete
+d image is artifact 
+its a alternative for all the artifact
+we dont need to instal npm and java on the server execute everything in image
+
+but instead we need to build our js or java then we make docker image from the build

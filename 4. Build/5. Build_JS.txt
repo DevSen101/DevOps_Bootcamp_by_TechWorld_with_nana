@@ -1,0 +1,34 @@
+build js file  no special artifact 
+there are teo npm and yarn package managers 
+both use package.json tomanage their dependencies
+itsuse for install dependecies not transpiling code
+npm install, start, stop, test and publish
+what dows the zar/zip include
+app code not the dependencies
+
+run the app n a server
+install dep, unpackzip/tar run the appp
+copy artiafact ,package json file
+in js its more flexible
+this is for backend in node
+
+
+what about package frontend code
+it can be possible frontend in reack and backend in py, java, node
+it has diff ways to package
+either package seprate code or package together
+so we have diff package.json for both front end and backend 
+or one package,json for whole
+
+but frontend reck code must be transpiled because browser dont understad it doesnt supports latest jsx etcneeds to be compressed
+sep build tool webpack for react 
+
+npm runbuild
+
+npm and yarn for dependecies
+seprate package.jsonvs common package .json with backend
+can be an adv to have same build and package mngmn tol
+
+also frontend in js and backend in java are very common
+bundle frontend with webpack, manage dep using npm and yarn
+at the last whole sum u make a war file

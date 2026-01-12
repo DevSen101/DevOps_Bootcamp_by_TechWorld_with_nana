@@ -1,0 +1,17 @@
+What are build and package manager tools
+
+app needs to be deployed on a production server 
+its package application into a single movable file which is called artifact
+ this packageing is called building the code
+ its compiling the code compress the code hundreds file into one single file
+
+
+ keep artifact in storage
+ to deploy multile times havebackup
+
+ where we keep artifact file is called artifat repository ex nexus, jfrog etc
+ everytime we deploy our file we need make a new artifact it can be zip etc
+ artifact look diff fr each file 
+ for java its jar war includes whole code plus dependecied\
+
+ 
