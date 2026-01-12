@@ -1,0 +1,1 @@
+after creating artifact we need to run the application diff platform examples java commands,

@@ -1,0 +1,11 @@
+how to build the artifact
+
+using a build tool is specific to a programming language
+its install dependecies
+compile and compress the code
+
+for java maven or gadel
+maven use xml, gradle use groovy which is good for scrpting both have cmd tools and cmds
+
+steps to building process in both of them
+
