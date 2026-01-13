@@ -1,17 +1,20 @@
-What are build and package manager tools
+## Build Process
+Compiles source code + dependencies into single deployable **artifact** (e.g., JAR, WAR, ZIP). Reduces hundreds of files to one movable unit for production servers.[1][4]
 
-app needs to be deployed on a production server 
-its package application into a single movable file which is called artifact
- this packageing is called building the code
- its compiling the code compress the code hundreds file into one single file
+## Artifact Repositories
+Central storage for artifacts with versioning/backup:
+- **Nexus** (Sonatype): Java-focused, free OSS version
+- **JFrog Artifactory**: Universal repo (Docker, Maven, npm), enterprise-grade
+- **Others**: AWS CodeArtifact, GitHub Packages[3]
 
+New artifact per deploy ensures reproducibility.
 
- keep artifact in storage
- to deploy multile times havebackup
+## Language-Specific Examples
+| Language | Build Tool | Package Manager | Artifact |
+|----------|------------|-----------------|----------|
+| Java     | Maven, Gradle | Maven Central | JAR/WAR/EAR |
+| Node.js  | npm/Yarn   | npm registry   | tgz |
+| Python   | pip/setuptools | PyPI       | wheel |
+| .NET     | NuGet         | NuGet.org      | nupkg |[1][2]
 
- where we keep artifact file is called artifat repository ex nexus, jfrog etc
- everytime we deploy our file we need make a new artifact it can be zip etc
- artifact look diff fr each file 
- for java its jar war includes whole code plus dependecied\
-
- 
+**Key**: Build tools automate packaging; package managers handle deps.[4]

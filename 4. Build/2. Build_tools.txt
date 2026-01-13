@@ -1,11 +1,79 @@
-how to build the artifact
+```markdown
+# 🔨 Artifact Building - Theory + Commands
 
-using a build tool is specific to a programming language
-its install dependecies
-compile and compress the code
+## 🎓 BUILD THEORY
+```
+BUILD PROCESS = Dependencies → Compile → Test → Package → Artifact
 
-for java maven or gadel
-maven use xml, gradle use groovy which is good for scrpting both have cmd tools and cmds
+**PHASE 1**: Download deps (Maven Central/PyPI/npm)
+**PHASE 2**: Compile source → bytecode/classes  
+**PHASE 3**: Unit tests → validation
+**PHASE 4**: Package ALL → single file (JAR/WAR/Docker)
+**PHASE 5**: Version + Store → Artifact Repo
+```
 
-steps to building process in both of them
+## Maven Lifecycle (Sequential Phases)
+```
+1. validate     → Check pom.xml
+2. compile      → src/main/java → target/classes  
+3. test         → src/test/java → Reports
+4. package      → JAR/WAR creation
+5. verify       → Integration tests
+6. install      → Local ~/.m2/repository
+7. deploy       → Nexus/JFrog Artifactory
+```
+**Key**: `mvn package` runs ALL previous phases automatically [web:11]
 
+## Gradle Tasks (DAG - Directed Acyclic Graph)
+```
+Tasks run PARALLEL when possible:
+├── clean
+├── compileJava ──┬→ classes
+│                 └── test → testClasses
+└── jar ←──────────┘ (depends on classes)
+```
+**Key**: `gradle build` = smart dependency resolution, incremental builds [web:12]
+
+## 🔥 COMPLETE COMMANDS
+
+```bash
+## MAVEN (XML pom.xml - Enterprise Standard)
+mvn clean install              # Local repo ready
+mvn clean package              # JAR in target/
+mvn clean package -DskipTests  # Fast build
+mvn clean deploy               # Push to Nexus
+
+## GRADLE (Groovy build.gradle - Developer Friendly)  
+gradle clean build             # JAR in build/libs/
+gradle build -x test           # Skip tests
+gradle build --daemon          # Reuse process (10x faster)
+gradle publish                 # Push to repo
+
+## WRAPPERS (Team Consistency - No Local Install)
+./mvnw clean package
+./gradlew clean build
+
+## VERIFY SUCCESS
+ls -la target/*.jar          # Maven ✅
+ls -la build/libs/*.jar      # Gradle ✅
+echo "🚀 Artifact ready for CI/CD!"
+```
+
+## ⚖️ Maven vs Gradle Decision Matrix
+| Criteria | Maven | Gradle |
+|----------|-------|--------|
+| Config | XML (declarative) | Groovy (scripting) |
+| Speed | Slower | **Daemon + Incremental** |
+| Learning | Easy | Moderate |
+| Enterprise | **Standard** | Growing |
+| Plugins | **Massive** | Growing |
+
+## 🎯 Pro Tips
+```
+✅ ALWAYS use WRAPPERS (mvnw/gradlew)
+✅ Cache deps locally (~/.m2 for Maven)
+✅ Version EVERY artifact (1.0.1 → 1.0.2)
+✅ Never modify existing artifacts (Immutable!)
+✅ CI/CD pulls from Artifact Repo (Nexus/JFrog)
+```
+```

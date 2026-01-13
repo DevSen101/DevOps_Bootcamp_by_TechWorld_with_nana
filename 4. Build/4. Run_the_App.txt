@@ -1,1 +1,93 @@
-after creating artifact we need to run the application diff platform examples java commands,
+```markdown
+# ▶️ Running Artifacts (Post-Build)
+
+## 🎓 EXECUTION THEORY
+```
+Artifact (JAR/WAR/ZIP) → JVM/Node/Python → RUNNING APP
+- **Executable JAR** = Self-contained (Main-Class in manifest)
+- **Different platforms** = Same artifact, different run commands
+```
+
+## 🔥 Java Platforms - Run Commands
+
+```bash
+## 1. STANDARD JAR (Most Common)
+java -jar target/app.jar
+java -jar app-1.0.jar
+
+## 2. WITH ARGUMENTS
+java -jar app.jar arg1 arg2 "arg with space"
+java -jar app.jar --port=8080 --env=prod
+
+## 3. SPECIFIC MEMORY
+java -Xmx2g -jar app.jar          # Max 2GB heap
+java -Xms512m -Xmx1g -jar app.jar # Min 512MB, Max 1GB
+
+## 4. NO MANIFEST (Specify Main-Class)
+java -cp app.jar com.example.MainClass
+java -classpath app.jar:lib/* com.example.Main
+
+## 5. SPRING BOOT (Embedded Tomcat)
+java -jar app.jar --server.port=9090
+
+## 6. DEVELOPMENT (Live Reload)
+mvn spring-boot:run
+gradle bootRun
+```
+
+## 🌐 Multi-Platform Examples
+
+```bash
+## PYTHON (wheel/pip package)
+python -m app.main
+pip install dist/app-1.0-py3-none-any.whl
+app-cli run
+
+## NODE.js (npm package)
+npm start
+node dist/index.js
+npm run prod
+
+## .NET (published app)
+dotnet MyApp.dll
+./MyApp  # Linux/Mac
+
+## DOCKER (Universal)
+docker run -p 8080:8080 myapp:1.0
+```
+
+## 🛠️ Production Run Scripts
+
+```bash
+#!/bin/bash
+# run-prod.sh
+java -Xmx4g -Xms2g -jar app-1.0.jar \
+  --spring.profiles.active=prod \
+  --server.port=8080 &
+
+echo $! > app.pid
+```
+
+## ✅ Verify Running
+```bash
+# Check process
+jps -l          # Java processes
+ps aux | grep java
+
+# Check port
+netstat -tulpn | grep 8080
+curl localhost:8080/health
+
+# Logs
+tail -f logs/app.log
+```
+
+## 💡 Pro Tips
+```
+✅ ALWAYS specify memory (-Xmx)
+✅ Use --spring.profiles.active=prod
+✅ Run as background service (systemd/PM2)
+✅ Health checks: /actuator/health (Spring)
+✅ Docker = Platform independent!
+```
+```
